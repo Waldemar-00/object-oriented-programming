@@ -3,19 +3,19 @@ export default class Slider {
         this.page = document.querySelector(page);
         this.slides = Array.from(this.page.children);
         this.buttons = document.querySelectorAll(buttons);
-        this.index = 1;
+        this.index = 0;
     }
     showSlides(index) {
-        if (index > this.slides.length) {
-            this.index = 1;
+        if (index > this.slides.length - 1) {
+            this.index = 0;
         }
-        if (index < 1) {
-            this.index = this.slides.length;
+        if (index < 0) {
+            this.index = this.slides.length - 1;
         }
         this.slides.forEach(slide => {
             slide.style.display = 'none';
         });
-        this.slides[this.index - 1].style.display = 'block';
+        this.slides[this.index].style.display = 'block';
     }
 
     plusSlide(step) {
@@ -32,7 +32,7 @@ export default class Slider {
             });
             btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.index = 1;
+                this.index = 0;
                 this.showSlides(this.index);
             });
         });
