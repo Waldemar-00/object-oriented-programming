@@ -49,7 +49,7 @@ export default class Slider {
             btn.addEventListener('click', () => {
                 this.plusSlide(1);
             });
-            btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
+            btn.parentElement.previousElementSibling.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.index = 0;
                 this.showSlides(this.index);
