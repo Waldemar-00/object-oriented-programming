@@ -1,8 +1,8 @@
-import Slider from "./modules/slider";
+import MainSlider from "./modules/sliders/main-slider";
 import VideoPlayer from './modules/YTvideo';
 window.addEventListener('DOMContentLoaded', () => {
-    const slider = new Slider('.page', '.next');
-    slider.render();
+    const mSlider = new MainSlider({page: '.page', buttons: '.next'});
+    mSlider.render();
     const YTVideo = new VideoPlayer('.play__circle', '.overlay');
     YTVideo.init();
 });
