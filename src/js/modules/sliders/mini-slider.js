@@ -5,12 +5,12 @@ export default class MiniSlider extends Slider {
 
     }
     decorize() {
-        for (const slide of this.slides) {
-            slide.classList.remove(this.activeClass);
+        for (let i = 0; i < this.slides.length; i++) {
+            this.slides[i].classList.remove(this.activeClass);
             if (this.cardActiveStyle) {
-                slide.querySelector('.card__title').style.opacity = "0.4";
-                slide.querySelector('.card__controls').style.opacity = "0.4";
-                slide.querySelector('.card__controls-arrow').style.opacity = "0";
+                this.slides[i].querySelector('.card__title').style.opacity = "0.4";
+                this.slides[i].querySelector('.card__controls').style.opacity = "0.4";
+                this.slides[i].querySelector('.card__controls-arrow').style.opacity = "0";
             }
         }
         this.slides[0].classList.add(this.activeClass);
