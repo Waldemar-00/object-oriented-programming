@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
         next: '.feed__slider .slick-next',
         prev: '.feed__slider .slick-prev',
         activeClass: 'feed__item-active',
+        downBtn: true,
     });
     fifthPageSlider.init();
     thirdPageSlider.init();

@@ -1,17 +1,16 @@
 import Slider from './slider';
 export default class MiniSlider extends Slider {
-    constructor(cover, next, prev, activeClass, autoplay, cardActiveStyle) {
-        super(cover, next, prev, activeClass, autoplay, cardActiveStyle);
-
+    constructor(cover, next, prev, activeClass, autoplay, cardActiveStyle, downBtn) {
+        super(cover, next, prev, activeClass, autoplay, cardActiveStyle, downBtn);
     }
     decorize() {
         for (let i = 0; i < this.slides.length; i++) {
-            this.slides[i].classList.remove(this.activeClass);
-            if (this.cardActiveStyle) {
-                this.slides[i].querySelector('.card__title').style.opacity = "0.4";
-                this.slides[i].querySelector('.card__controls').style.opacity = "0.4";
-                this.slides[i].querySelector('.card__controls-arrow').style.opacity = "0";
-            }
+                this.slides[i].classList.remove(this.activeClass);
+                if (this.cardActiveStyle) {
+                    this.slides[i].querySelector('.card__title').style.opacity = "0.4";
+                    this.slides[i].querySelector('.card__controls').style.opacity = "0.4";
+                    this.slides[i].querySelector('.card__controls-arrow').style.opacity = "0";
+                }
         }
         this.slides[0].classList.add(this.activeClass);
         if (this.cardActiveStyle) {
@@ -24,13 +23,20 @@ export default class MiniSlider extends Slider {
     bindTriggers() {
         this.next.addEventListener('click', () => this.nextSlide());
         this.prev.addEventListener('click', () => {
-            this.cover.prepend(this.slides[this.slides.length - 1]);
-            //we can use insertBefore if we need exact position
+            if (this.downBtn) {
+                this.cover.insertBefore(this.slides[this.slides.length - 3], this.slides[0]);
+            } else {
+                this.cover.prepend(this.slides[this.slides.length - 1]);
+            }
             this.decorize();
         });
     }
     nextSlide() {
-        this.cover.append(this.slides[0]);
+        if (this.downBtn) {
+            this.cover.insertBefore(this.slides[0], this.slides[this.slides.length - 2]);
+        } else {
+            this.cover.append(this.slides[0]);
+        }
         this.decorize();
     }
     init() {

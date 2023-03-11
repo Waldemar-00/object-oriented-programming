@@ -7,7 +7,7 @@ export default class Slider {
         activeClass = null,
         autoplay = null,
         cardActiveStyle = null,
-        } = {}) {
+        downBtn =null,} = {}) {
         this.cover = document.querySelector(cover);
         this.slides = this.cover.children;
         this.buttons = document.querySelectorAll(buttons);
@@ -18,5 +18,6 @@ export default class Slider {
         this.activeClass = activeClass;
         this.autoplay = autoplay;
         this.cardActiveStyle = cardActiveStyle;
+        this.downBtn = downBtn;
     }
 }
