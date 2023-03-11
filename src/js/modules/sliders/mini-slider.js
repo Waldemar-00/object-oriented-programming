@@ -5,14 +5,14 @@ export default class MiniSlider extends Slider {
 
     }
     decorize() {
-        Array.from(this.slides).forEach(slide => {
+        for (const slide of this.slides) {
             slide.classList.remove(this.activeClass);
             if (this.cardActiveStyle) {
                 slide.querySelector('.card__title').style.opacity = "0.4";
                 slide.querySelector('.card__controls').style.opacity = "0.4";
                 slide.querySelector('.card__controls-arrow').style.opacity = "0";
             }
-        });
+        }
         this.slides[0].classList.add(this.activeClass);
         if (this.cardActiveStyle) {
             this.slides[0].querySelector('.card__title').style.opacity = "1";
