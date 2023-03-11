@@ -6,11 +6,29 @@ window.addEventListener('DOMContentLoaded', () => {
     mSlider.render();
     const YTVideo = new VideoPlayer('.play__circle', '.overlay');
     YTVideo.init();
-    const miniSlider = new MiniSlider({
+    const firstPageSlider = new MiniSlider({
         cover: '.showup__content-slider',
         next: '.showup__next',
-        prev: '.showup__prev'
+        prev: '.showup__prev',
+        activeClass: 'card-active',
+        cardActiveStyle: true,
     });
-    miniSlider.init();
+    const thirdPageSlider = new MiniSlider({
+        cover: '.modules__content-slider',
+        next: '.modules__info-btns .slick-next',
+        prev: '.modules__info-btns .slick-prev',
+        activeClass: 'card-active',
+        //!for native js
+        cardActiveStyle: true,
+    });
+    const fifthPageSlider = new MiniSlider({
+        cover: '.feed__slider',
+        next: '.feed__slider .slick-next',
+        prev: '.feed__slider .slick-prev',
+        activeClass: 'feed__item-active',
+    });
+    fifthPageSlider.init();
+    thirdPageSlider.init();
+    firstPageSlider.init();
 });
 

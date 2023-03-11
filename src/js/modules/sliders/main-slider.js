@@ -22,7 +22,7 @@ export default class MainSlider extends Slider {
                 this.hanson.classList.remove('slideInUp');
             }
         } catch (e) { }
-        this.slides.forEach(slide => {
+        Array.from(this.slides).forEach(slide => {
             slide.style.display = 'none';
         });
         this.slides[this.index].style.display = 'block';
