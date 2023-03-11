@@ -18,8 +18,8 @@ window.addEventListener('DOMContentLoaded', () => {
         next: '.modules__info-btns .slick-next',
         prev: '.modules__info-btns .slick-prev',
         activeClass: 'card-active',
-        //!for native js
         cardActiveStyle: true,
+        autoplay: true,
     });
     const fifthPageSlider = new MiniSlider({
         cover: '.feed__slider',

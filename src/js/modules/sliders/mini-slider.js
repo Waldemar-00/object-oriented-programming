@@ -7,7 +7,6 @@ export default class MiniSlider extends Slider {
     decorize() {
         Array.from(this.slides).forEach(slide => {
             slide.classList.remove(this.activeClass);
-            //!for native js
             if (this.cardActiveStyle) {
                 slide.querySelector('.card__title').style.opacity = "0.4";
                 slide.querySelector('.card__controls').style.opacity = "0.4";
@@ -15,7 +14,6 @@ export default class MiniSlider extends Slider {
             }
         });
         this.slides[0].classList.add(this.activeClass);
-        //!throw native js
         if (this.cardActiveStyle) {
             this.slides[0].querySelector('.card__title').style.opacity = "1";
             this.slides[0].querySelector('.card__controls').style.opacity = "1";
@@ -24,15 +22,16 @@ export default class MiniSlider extends Slider {
         }
     }
     bindTriggers() {
-        this.next.addEventListener('click', () => {
-            this.cover.append(this.slides[0]);
-            this.decorize();
-        });
+        this.next.addEventListener('click', () => this.nextSlide());
         this.prev.addEventListener('click', () => {
             this.cover.prepend(this.slides[this.slides.length - 1]);
             //we can use insertBefore if we need exact position
             this.decorize();
         });
+    }
+    nextSlide() {
+        this.cover.append(this.slides[0]);
+        this.decorize();
     }
     init() {
         this.cover.style.cssText = `
@@ -42,7 +41,9 @@ export default class MiniSlider extends Slider {
             align-items: flex-start;
         `;
         this.bindTriggers();
-        //!for native js
         this.decorize();
+        if (this.autoplay) {
+            setInterval(() => this.nextSlide(), 5000);
+        }
     }
 }
