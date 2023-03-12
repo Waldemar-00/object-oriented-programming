@@ -1,5 +1,6 @@
 import MainSlider from "./modules/sliders/main-slider";
 import MiniSlider from "./modules/sliders/mini-slider";
+import Select from "./modules/sliders/select";
 import VideoPlayer from './modules/YTvideo';
 window.addEventListener('DOMContentLoaded', () => {
     const mSlider = new MainSlider({ cover: '.page', buttons: '.next' });
@@ -31,5 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
     fifthPageSlider.init();
     thirdPageSlider.init();
     firstPageSlider.init();
+    new Select('.officerold', '.officer__card-item').init();
+    new Select('.officernew', '.officer__card-item').init();
 });
 
