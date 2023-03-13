@@ -1,5 +1,6 @@
 import MainSlider from "./modules/sliders/main-slider";
 import MiniSlider from "./modules/sliders/mini-slider";
+import Form from "./modules/forms";
 import Select from "./modules/sliders/select";
 import VideoPlayer from './modules/YTvideo';
 window.addEventListener('DOMContentLoaded', () => {
@@ -34,5 +35,6 @@ window.addEventListener('DOMContentLoaded', () => {
     firstPageSlider.init();
     new Select('.officerold', '.officer__card-item').init();
     new Select('.officernew', '.officer__card-item').init();
+    new Form('form').init();
 });
 
