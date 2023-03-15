@@ -45,25 +45,26 @@ export default class Form {
         };
 
         function createMask(event) {
-            let matrix = '+1 (___) ___-____',
-                i = 0,
-                def = matrix.replace(/\D/g, ''),
-                val = this.value.replace(/\D/g, '');
+            const matrix = '+1 (___) ___-____';
+            let i = 0;
+            let val = this.value.replace(/\D/g, '');
+            console.log(val); // ''
 
-            if (def.length >= val.length) {
-                val = def;
+            if (matrix.replace(/\D/g, '').length >= val.length) {
+                val = matrix.replace(/\D/g, '');
             }
-
+            console.log( this.value );
             this.value = matrix.replace(/./g, function(a) {
-                return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+                return (/[_\d]/.test(a) && i < val.length) ? (val.charAt(i++)) :(i >= val.length) ? '' : a;
             });
+            console.log( this.value );
 
             if (event.type === 'blur') {
                 if (this.value.length == 2) {
                     this.value = '';
                 }
             } else {
-                setCursorPosition(this.value.length, this);
+                event.target.selectionStart = event.target.selectionEnd = this.value.length;
             }
         }
 
@@ -71,8 +72,8 @@ export default class Form {
 
         inputs.forEach(input => {
             input.addEventListener('input', createMask);
-            input.addEventListener('focus', createMask);
-            input.addEventListener('blur', createMask);
+            // input.addEventListener('focus', createMask);
+            // input.addEventListener('blur', createMask);
         });
     }
 
