@@ -27,58 +27,58 @@ export default class Form {
             });
         });
     }
-    initMask() {
+    // initMask() {
 
-        let setCursorPosition = (pos, elem) => {
-            elem.focus();
-            
-            if (elem.setSelectionRange) {
-                elem.setSelectionRange(pos, pos);
-            } else if (elem.createTextRange) {
-                let range = elem.createTextRange();
+        // let setCursorPosition = (pos, elem) => {
+            // elem.focus();
+            // 
+            // if (elem.setSelectionRange) {
+                // elem.setSelectionRange(pos, pos);
+            // } else if (elem.createTextRange) {
+                // let range = elem.createTextRange();
 
-                range.collapse(true);
-                range.moveEnd('character', pos);
-                range.moveStart('character', pos);
-                range.select();
-            }
-        };
+                // range.collapse(true);
+                // range.moveEnd('character', pos);
+                // range.moveStart('character', pos);
+                // range.select();
+            // }
+        // };
 
-        function createMask(event) {
-            const matrix = '+1 (___) ___-____';
-            let i = 0;
-            let val = this.value.replace(/\D/g, '');
-            console.log(val); // ''
+        // function createMask(event) {
+            // const matrix = '+1 (___) ___-____';
+            // let i = 0;
+            // let val = this.value.replace(/\D/g, '');
+            // console.log(val); // ''
 
-            if (matrix.replace(/\D/g, '').length >= val.length) {
-                val = matrix.replace(/\D/g, '');
-            }
-            console.log( this.value );
-            this.value = matrix.replace(/./g, function(a) {
-                return (/[_\d]/.test(a) && i < val.length) ? (val.charAt(i++)) :(i >= val.length) ? '' : a;
-            });
-            console.log( this.value );
+            // if (matrix.replace(/\D/g, '').length >= val.length) {
+                // val = matrix.replace(/\D/g, '');
+            // }
+            // console.log( this.value );
+            // this.value = matrix.replace(/./g, function(a) {
+                // return (/[_\d]/.test(a) && i < val.length) ? (val.charAt(i++)) :(i >= val.length) ? '' : a;
+            // });
+            // console.log( this.value );
 
-            if (event.type === 'blur') {
-                if (this.value.length == 2) {
-                    this.value = '';
-                }
-            } else {
-                event.target.selectionStart = event.target.selectionEnd = this.value.length;
-            }
-        }
+            // if (event.type === 'blur') {
+                // if (this.value.length == 2) {
+                    // this.value = '';
+                // }
+            // } else {
+                // event.target.selectionStart = event.target.selectionEnd = this.value.length;
+            // }
+        // }
 
-        let inputs = document.querySelectorAll('[name="phone"]');
+        // let inputs = document.querySelectorAll('[name="phone"]');
 
-        inputs.forEach(input => {
-            input.addEventListener('input', createMask);
+        // inputs.forEach(input => {
+            // input.addEventListener('input', createMask);
             // input.addEventListener('focus', createMask);
             // input.addEventListener('blur', createMask);
-        });
-    }
+        // });
+    // }
 
     init() {
-        this.initMask();
+        // this.initMask();
         this.mailValidate();
         this.forms.forEach(form => {
             form.addEventListener('submit', (e) => {
