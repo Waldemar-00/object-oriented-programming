@@ -15,12 +15,11 @@ export default function phone(inputTel) {
             }
             return;
         }
-        if (['7', '8', '9'].indexOf(inputValueNumbers[0]) > (- 1)) {
+        if (['1'].indexOf(inputValueNumbers[0]) > (- 1)) {
             if (inputValueNumbers[0] === '9') {
-                inputValueNumbers = '7' + inputValueNumbers;
+                inputValueNumbers = '1' + inputValueNumbers;
             }
-            const firstChar = inputValueNumbers[0] === '8' ? '8' : '+7';
-            formattedInputValue = firstChar + ' ';
+            formattedInputValue = '+1' + ' ';
             if (formattedInputValue.length > 1) {
                 formattedInputValue += '(' + inputValueNumbers.slice(1, 4); 
             }
@@ -28,10 +27,7 @@ export default function phone(inputTel) {
                 formattedInputValue += ') ' + inputValueNumbers.slice(4, 7);
             }
             if (inputValueNumbers.length >= 8) {
-                formattedInputValue += '-' + inputValueNumbers.slice(7, 9);
-            }
-            if (inputValueNumbers.length >= 10) {
-                formattedInputValue += '-' + inputValueNumbers.slice(9, 11);
+                formattedInputValue += '-' + inputValueNumbers.slice(7, 11);
             }
         } else {
             formattedInputValue = '+' + inputValueNumbers.substring(0, 16);
