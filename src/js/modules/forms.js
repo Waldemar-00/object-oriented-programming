@@ -1,5 +1,5 @@
 export default class Form {
-    constructor(form) {
+    constructor(form, inputTel) {
         this.forms = document.querySelectorAll(form);
         this.inputs = document.querySelectorAll('input');
         this.message = {
@@ -8,6 +8,7 @@ export default class Form {
             failure: 'Something breaked...',
         };
         this.path = 'https://jsonplaceholder.typicode.com/posts';
+        this.inputTel = inputTel;
     }
     async postData(url, data) {
         const response = await fetch(url, {
@@ -87,7 +88,7 @@ export default class Form {
         }
     }
     init() {
-        this.phone('input[data-tel-input]');
+        this.phone(this.inputTel);
         this.mailValidate();
         this.forms.forEach(form => {
             form.addEventListener('submit', (e) => {

@@ -35,6 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     firstPageSlider.init();
     new Select('.officerold', '.officer__card-item').init();
     new Select('.officernew', '.officer__card-item').init();
-    new Form('form').init();
+    new Form('form', 'input[data-tel-input]').init();
 });
 
