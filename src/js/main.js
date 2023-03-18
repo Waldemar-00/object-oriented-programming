@@ -3,7 +3,6 @@ import MiniSlider from "./modules/sliders/mini-slider";
 import Form from "./modules/forms";
 import Select from "./modules/sliders/select";
 import VideoPlayer from './modules/YTvideo';
-import phone from './modules/phone';
 document.addEventListener('DOMContentLoaded', () => {
     const mSlider = new MainSlider({ cover: '.page', buttons: '.next' });
     mSlider.render();
@@ -37,6 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
     new Select('.officerold', '.officer__card-item').init();
     new Select('.officernew', '.officer__card-item').init();
     new Form('form').init();
-    phone('input[data-tel-input]');
 });
 
