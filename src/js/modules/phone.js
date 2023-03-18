@@ -30,7 +30,7 @@ export default function phone(inputTel) {
                 formattedInputValue += '-' + inputValueNumbers.slice(7, 11);
             }
         } else {
-            formattedInputValue = '+' + inputValueNumbers.substring(0, 16);
+            formattedInputValue = '+' + inputValueNumbers.substring(0, 15);
         }
         e.target.value = formattedInputValue;
         console.log(formattedInputValue);
