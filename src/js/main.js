@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nextmodule: '.nextmodule',
     });
     modulePageSlider.render();
-    const YTVideo = new VideoPlayer('.play__circle', '.overlay');
-    YTVideo.init();
+    new VideoPlayer('.play__circle', '.overlay').init();
+    new VideoPlayer('.module__video-item .play__circle', '.overlay').init();
     const firstPageSlider = new MiniSlider({
         cover: '.showup__content-slider',
         next: '.showup__next',
