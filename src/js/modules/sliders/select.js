@@ -1,9 +1,11 @@
 export default class Select {
     constructor(officer, cardItems) {
         this.officer = document.querySelector(officer);
-        this.cardItems = this.officer.querySelectorAll(cardItems);
-        this.array = Array.from(this.cardItems);
-        this.clickItem = this.array.pop();
+        try {
+            this.cardItems = this.officer.querySelectorAll(cardItems);
+            this.array = Array.from(this.cardItems);
+            this.clickItem = this.array.pop();
+        } catch(e) {}
     }
     hiddenCardItems() {
         this.array.forEach(item => {
@@ -22,7 +24,9 @@ export default class Select {
         });
     }
     init() {
-        this.hiddenCardItems();
-        this.eventClick();
+        try {
+            this.hiddenCardItems();
+            this.eventClick();
+        } catch (e) {}
     }
 }

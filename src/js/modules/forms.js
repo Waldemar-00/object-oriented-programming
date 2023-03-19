@@ -63,11 +63,8 @@ export default class Form {
                 formattedInputValue = '+' + inputValueNumbers.substring(0, 15);
             }
             e.target.value = formattedInputValue;
-            console.log(formattedInputValue);
         }
         function onPhoneKeyDown(e) {
-            console.log(e.keyCode, '--', e.target.value);
-            console.log(e.target.value.length);
             if (e.keyCode === 8 && getInputValueNumbers(e.target).length === 1) {
                 e.target.value = '';
             }

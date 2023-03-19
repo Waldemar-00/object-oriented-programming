@@ -4,8 +4,16 @@ import Form from "./modules/forms";
 import Select from "./modules/sliders/select";
 import VideoPlayer from './modules/YTvideo';
 document.addEventListener('DOMContentLoaded', () => {
-    const mSlider = new MainSlider({ cover: '.page', buttons: '.next' });
-    mSlider.render();
+    const mainPageSlider = new MainSlider({
+        cover: '.page',
+        buttons: '.next',
+    });
+    mainPageSlider.render();
+    const modulePageSlider = new MainSlider({
+        cover: '.moduleapp', buttons: '.next', prevmodule: '.prevmodule',
+        nextmodule: '.nextmodule',
+    });
+    modulePageSlider.render();
     const YTVideo = new VideoPlayer('.play__circle', '.overlay');
     YTVideo.init();
     const firstPageSlider = new MiniSlider({

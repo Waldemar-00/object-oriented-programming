@@ -7,9 +7,11 @@ export default class Slider {
         activeClass = null,
         autoplay = null,
         cardActiveStyle = null,
+        prevmodule = null,
+        nextmodule = null,
         downBtn =null,} = {}) {
         this.cover = document.querySelector(cover);
-        this.slides = this.cover.children;
+        try { this.slides = this.cover.children; } catch (e) {}
         this.buttons = document.querySelectorAll(buttons);
         this.next = document.querySelector(next);
         this.prev = document.querySelector(prev);
@@ -19,5 +21,7 @@ export default class Slider {
         this.autoplay = autoplay;
         this.cardActiveStyle = cardActiveStyle;
         this.downBtn = downBtn;
+        this.prevmodule = prevmodule;
+        this.nextmodule = nextmodule;
     }
 }

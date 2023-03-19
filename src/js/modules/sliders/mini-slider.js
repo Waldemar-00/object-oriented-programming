@@ -40,6 +40,7 @@ export default class MiniSlider extends Slider {
         this.decorize();
     }
     init() {
+        try {
         this.cover.style.cssText = `
             display: flex;
             flex-wrap: wrap;
@@ -49,13 +50,14 @@ export default class MiniSlider extends Slider {
         this.bindTriggers();
         this.decorize();
         if (this.autoplay) {
-            const interval = setInterval(() => this.nextSlide(), 5000);
-            this.next.addEventListener('click', () => {
-                clearInterval(interval);    
-            });
-            this.prev.addEventListener('click', () => {
-                clearInterval(interval);
-            });
-        }
+                const interval = setInterval(() => this.nextSlide(), 5000);
+                this.next.addEventListener('click', () => {
+                    clearInterval(interval);    
+                });
+                this.prev.addEventListener('click', () => {
+                    clearInterval(interval);
+                });
+            }
+        } catch(e){}
     }
 }
