@@ -30,29 +30,27 @@ export default class MainSlider extends Slider {
     plusSlide(step) {
         this.showSlides(this.index += step);
     }
+    moveHorizontalSlide(module, step) {
+        document.querySelectorAll(module).forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.plusSlide(step);
+            });
+        });
+    }
     clickBind() {
-            this.buttons.forEach(btn => {
+        this.buttons.forEach(btn => {
             btn.addEventListener('click', () => {
                 this.plusSlide(1);
             });
-            btn.parentElement.previousElementSibling.addEventListener('click', (e) => {
+        btn.parentElement.previousElementSibling.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.index = 0;
                 this.showSlides(this.index);
             });
         });
-    document.querySelectorAll(this.prevmodule).forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.plusSlide(-1);
-        });
-    });
-    document.querySelectorAll(this.nextmodule).forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.plusSlide(1);
-        });
-    });
+        this.moveHorizontalSlide(this.prevmodule, -1);
+        this.moveHorizontalSlide(this.nextmodule, 1);
 }
     render() {
         if (this.cover){
