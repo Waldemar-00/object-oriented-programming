@@ -3,6 +3,8 @@ import MiniSlider from "./modules/sliders/mini-slider";
 import Form from "./modules/forms";
 import Select from "./modules/sliders/select";
 import VideoPlayer from './modules/YTvideo';
+import ShowInfo from './modules/showInfo';
+// import Download from './modules/download';
 document.addEventListener('DOMContentLoaded', () => {
     const mainPageSlider = new MainSlider({
         cover: '.page',
@@ -44,5 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new Select('.officerold', '.officer__card-item').init();
     new Select('.officernew', '.officer__card-item').init();
     new Form('form', 'input[data-tel-input]').init();
+    new ShowInfo('.module__info-show .plus').init();
+    // new Download('.download', "assets/img/Bitmap.jpg").init();
 });
 
